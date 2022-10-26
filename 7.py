@@ -1,0 +1,11 @@
+import numpy as np
+a=np.array([[1,2,3],[4,5,6],[7,8,9]])
+b=np.array([[9,8,7],[6,5,4],[3,2,1]])
+print("1st",a, "\n second",b)
+print("Add the 2 matrices",np.add(a,b))
+print("Subtract 2 matrices",np.subtract(a,b))
+print("Multiply the individual elements of matrix",np.multiply(a,b))
+print("Divide the elements of the matrices",np.divide(a,b))
+print("Perform matrix multiplication",np.matmul(a,b))
+print("Display transpose of the matrix",a.T,"\n second",b.T)
+print("Sum of diagonal elements of a matrix",a.trace(),"\n second",b.trace())
