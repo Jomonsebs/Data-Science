@@ -1,0 +1,29 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+data=pd.read_csv("diabetes.csv", names=["Pregnancies","Glucose","BloodPressure","SkinThickness","Insulin","BMI",
+                                           "DiabetesPedigreeFunction","Age","Outcome"])
+print(data)
+data.head()
+
+data[('class')],Class_names=pd.factorize["class"]
+data[("Pregnancies")],_=pd.factorize(["Pregnancies"])
+data[("Glucose")],_=pd.factorize(["Glucose"])
+data[("BloodPressure")],_=pd.factorize(["BloodPressure"])
+data[("Insulin")],_=pd.factorize(["Insulin"])
+data[("BMI")],_=pd.factorize(["BMI"])
+data[("DiabetesPedigreeFunction")],_=pd.factorize(["DiabetesPedigreeFunction"])
+data[("Age")],_=pd.factorize(["Age"])
+data[("Outcome")],_=pd.factorize(["Outcome"])
+x=data.iloc[:,:-1].values
+y=data.iloc[:,:8].values
+from sklearn.model_selection import train_test_split
+X_train,x_test,y_train,y_test=train_test_split(x,y)
+from sklearn import tree,metrics
+dtree=tree.DecisionTreeClassifier(criterion="entropy")
+dtree.fit(X_train,y_train)
+y_pred=dtree.predict(x_test)
+from sklearn.metrics import classification_report,confusion_matrix
+p=classification_report(y_pred,y_test)
+print(p)
+from sklearn.metrics import accuracy_score
+s=accuracy_score(y_pred,y_test)
